@@ -22,8 +22,8 @@ public class CSVService {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8));
              CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
-                     .withFirstRecordAsHeader() // Ignora a primeira linha (cabeçalho)
-                     .withTrim())) { // Remove espaços em branco
+                     .withFirstRecordAsHeader()
+                     .withTrim())) {
 
             for (CSVRecord csvRecord : csvParser) {
                 String name = csvRecord.get("name");
