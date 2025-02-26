@@ -26,9 +26,9 @@ public class CSVService {
                      .withTrim())) {
 
             for (CSVRecord csvRecord : csvParser) {
-                String name = csvRecord.get("name");
-                double price = Double.parseDouble(csvRecord.get("price"));
-                int quantity = Integer.parseInt(csvRecord.get("quantity"));
+                String name = csvRecord.get("Nome");
+                double price = Double.parseDouble(csvRecord.get("Preco"));
+                double quantity = Double.parseDouble(csvRecord.get("Quantidade"));
 
                 ProductDTO product = new ProductDTO(name, price, quantity);
                 products.add(product);

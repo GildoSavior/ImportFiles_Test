@@ -18,7 +18,10 @@ public class CSVController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<List<ProductDTO>> uploadCSV(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<?> uploadCSV(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body("Nenhum arquivo foi enviado.");
+        }
         List<ProductDTO> products = csvService.readCSVFile(file);
         return ResponseEntity.ok(products);
     }
